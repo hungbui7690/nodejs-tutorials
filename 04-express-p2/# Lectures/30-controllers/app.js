@@ -1,9 +1,8 @@
 /*  
-  - right now, people.js is messy 
-    > we can setup callback functions into separated functions
+  - right now, people.js file is messy 
+    + we can setup callback functions into separated place 
 
-
-  Steps: 
+  - Steps: 
     1. create /controllers/people.js
     2. takeout all middlewares in routes into functions into controllers
     3. export 

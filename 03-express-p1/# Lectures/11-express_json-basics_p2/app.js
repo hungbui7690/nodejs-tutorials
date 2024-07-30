@@ -1,4 +1,5 @@
 /*
+  JSON Basics
   - instead of passing directly JSON data into res.json()
     > we have data.js which contains JSON
     > in app.js, we just need to import and pass directly to app.json()

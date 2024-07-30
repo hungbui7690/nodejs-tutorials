@@ -1,15 +1,15 @@
 /*
   req.params 
   - now, if we go to localhost:5000/api/products, we can get all products
-
   - so, if we want to get specific product? 
-    > /api/products/1 >> we will get the product with ID = 1
-    > if we have multiple products with ID from 1 to 100 >> our code will be messy 
-      >> this is why we need to use "param"
+    > /api/products/1 -> we will get the product with ID = 1 -> need to setup route for /1
+    > if we have multiple products with ID from 1 to 100 -> our code will be messy 
+      # this is why we need to use "param"
 
-  - /api/products/:productID >> placeholder
-    + to access >> use req.params 
-      > req.params.productID >> return string >> we need to use Number() or parseInt()
+
+  - /api/products/:productID -> placeholder
+    + to access -> use req.params 
+      > req.params.productID -> return string -> we need to use Number() or parseInt()
 
 */
 
@@ -33,9 +33,9 @@ app.get('/api/products', (req, res) => {
   res.json(newProducts)
 })
 
-// (1) http://localhost:5000/api/products/1
+// http://localhost:5000/api/products/1
 app.get('/api/products/:productID', (req, res) => {
-  console.log(req.params) // (a) req.params >> return {}
+  console.log(req.params) // (a) req.params -> return { productID: '1' }
 
   const productID = req.params.productID // (b)
 
@@ -43,9 +43,9 @@ app.get('/api/products/:productID', (req, res) => {
     (product) => product.id === Number(productID) // (c) we need to convert to Number
   )
 
-  if (!singleProduct) return res.status(404).send('Product does not exist') // (d)
+  if (!singleProduct) return res.status(404).send('Product does not exist')
 
-  res.json(singleProduct) // (e)
+  res.json(singleProduct)
 })
 
 app.listen(5000, () => {

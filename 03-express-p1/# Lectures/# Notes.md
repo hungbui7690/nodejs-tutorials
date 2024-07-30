@@ -2,7 +2,7 @@ https://course-api.com/slides/
 
 # HTTP Request Response Cycle
 
-- Servers = Computers which contain resources (make sure resourses are always available)
+- Servers = Computers which contain resources (make sure resources are always available)
 - Cloud = multiple computers connected together
 
 - Client gửi Request Message tới Server, và Server gửi lại Response Message về Client

@@ -1,9 +1,9 @@
 /*
-  req object:
+  Request Object
   - req.method
   - req.url
 
-  *** must have right status code >> 404 at default page
+  *** must have right status code -> 404 at default page
 
 */
 

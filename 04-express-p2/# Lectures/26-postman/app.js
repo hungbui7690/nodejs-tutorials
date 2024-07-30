@@ -1,9 +1,10 @@
 /*
   - res.status(201).json({ success: true, data: [...people, name] }) 
-    > we add "name" into data
-    > we don't need ID, because when we work with DB, ID will will be auto generated 
+    + we add "name" into data
+    + we don't need ID, because when we work with DB, ID will will be auto generated 
 
-  > postman: localhost:5000/api/postman/people 
+
+  *** postman: localhost:5000/api/postman/people 
 
 */
 
@@ -14,14 +15,13 @@ let { people } = require('./data')
 
 app.use(express.static('./methods-public'))
 
-app.use(express.json()) // ***
+app.use(express.json()) // need this row -> otherwise, req.body is undefined
 
-// (1) client will go here to get the data (people) to display on UI
+// client will go here to get the data (people) to display on UI
 app.get('/api/people', (req, res) => {
   res.status(200).send({ success: true, data: people })
 })
 
-// (2)
 app.post('/login', (req, res) => {
   console.log(req.body)
   const { name } = req.body
@@ -30,7 +30,7 @@ app.post('/login', (req, res) => {
   return res.status(404).send('Please provide credentials')
 })
 
-// (3) when submit the form, it will go here
+// when submit the form, it will go here
 app.post('/api/people', (req, res) => {
   console.log(req.body)
   const { name } = req.body
@@ -41,7 +41,7 @@ app.post('/api/people', (req, res) => {
   res.status(201).json({ success: true, person: name })
 })
 
-// (1) postman >> pic: postman
+// postman -> pic: postman
 app.post('/api/postman/people', (req, res) => {
   const { name } = req.body
   if (!name)

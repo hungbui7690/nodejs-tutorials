@@ -1,5 +1,6 @@
 /*
-  https://hn.algolia.com/api >> this is the standard example about setup server
+  https://hn.algolia.com/api -> this is the standard example about setup server
+
     /api/v1/items/:id                     query param
     /api/v1/users/:username               query param 
     /api/v1/search?query=...              query string
@@ -8,16 +9,17 @@
   - By default a limited number of results are returned in each page, so a given query may be broken over dozens of pages. 
   - The number of results and page number are available as the variables nbPages and hitsPerPage respectively; they can be specified as arguments in requests, allowing for more results to be requested or iteration over the available pages eg appending to the search URL parameters like &page=2 or hitsPerPage=50.
 
-////////////////////////////////////////////////////////
+
+*************************
 
   - query string param === url param
     + ?key=value
       > ex: /api/v1/search?query=abc
-        > ?query=abc >> this is query string
+        => ?query=abc -> this is query string
 
     + app.get('/api/v1/query', (req, res) => {}
       > http://localhost:5000/api/v1/query  ?name=john&id=4
-        > req.query() will get {name: john, id: 4}
+        => req.query() will get {name: john, id: 4}
 
 */
 
@@ -70,7 +72,7 @@ app.get('/api/v1/query', (req, res) => {
 
   // (e)
   // http://localhost:5000/api/v1/query?limit=2
-  // http://localhost:5000/api/v1/query?limit=abc >> empty array
+  // http://localhost:5000/api/v1/query?limit=abc => empty array
   if (limit) {
     newProducts = newProducts.slice(0, Number(limit))
   }

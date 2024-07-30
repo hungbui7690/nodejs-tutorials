@@ -1,9 +1,8 @@
 /*
   - params sometimes become very complex
-  
-  - ex, we setup: app.get('/api/products/:productID/reviews/:reviewID', cb)   
-    > http://localhost:5000/api/products/2/reviews/abc 
-      > now req.params sẽ là { productID: '2', reviewID: 'abc' }
+    + ex, we setup: app.get('/api/products/:productID/reviews/:reviewID', cb)   
+      > http://localhost:5000/api/products/2/reviews/abc 
+        -> now req.params will be { productID: '2', reviewID: 'abc' }
 
 */
 

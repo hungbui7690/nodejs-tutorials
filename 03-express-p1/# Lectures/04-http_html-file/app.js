@@ -1,14 +1,15 @@
 /*
-  Why do we use readFileSync(), but not readFile()
-  - we don't run this method everytime receive request 
-    > it just run ONCE when instantiate our server
+  HTTP - HTML File
+  - Why do we use readFileSync(), but not readFile()
+    + we don't run this method everytime receive request 
+      > it just run ONCE when instantiate our server
 
 */
 
 const http = require('http')
 const { readFileSync } = require('fs')
 
-// === (1) read html file
+// read Html File
 const homePage = readFileSync('./index.html')
 
 const server = http.createServer((req, res) => {
@@ -16,7 +17,7 @@ const server = http.createServer((req, res) => {
 
   if (url === '/') {
     res.writeHead(200, { 'content-type': 'text/html' })
-    return res.end(homePage) // === (2) use here >> now, homepage will be loaded from html file
+    return res.end(homePage) // *** use here  now, homepage will be loaded from html file
   }
   if (url === '/about') {
     res.writeHead(200, { 'content-type': 'text/html' })

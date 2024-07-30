@@ -1,8 +1,8 @@
 /*
   index.html is static file or not? 
   - yes, so that we can put it into public/ and remove res.sendFile()
-    > this is the way we use to simple site >> put everything in public/ and setup middleware to serve static asset 
-    > but with complex app >> SRR (Server Side Rendering) >> learn later
+    > this is the way we use to simple site => put everything in public/ and setup middleware to serve static asset 
+    > but with complex app => SRR (Server Side Rendering) => learn later
 
 */
 

@@ -1,7 +1,6 @@
 /*  
-
   - this is another way to work with express router
-    > check routes/people.js
+    + check routes/people.js
 
 */
 
