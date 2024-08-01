@@ -129,7 +129,7 @@ const showStats = async (req, res) => {
     declined: stats.declined || 0,
   }
 
-  // e. Pipeline
+  // e. Pipeline -> group by year, month -> sort by year, month
   let monthlyApplications = await Job.aggregate([
     { $match: { createdBy: new mongoose.Types.ObjectId(req.user.userID) } },
     {
@@ -142,7 +142,7 @@ const showStats = async (req, res) => {
     { $limit: 6 },
   ])
 
-  // use map() & moment to format date time
+  // f. use map() & moment to format date time
   monthlyApplications = monthlyApplications
     .map((item) => {
       const {
