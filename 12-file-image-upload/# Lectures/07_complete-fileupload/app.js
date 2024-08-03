@@ -25,6 +25,11 @@
   *** maxSize: use 1000 to test -> typically use 1024x1024
 
 
+************************
+
+  After all, can test using UI -> public/
+
+
 */
 
 require('dotenv').config()
