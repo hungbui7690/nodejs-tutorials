@@ -1,0 +1,16 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "ws": "^8.18.0"
+  }
+}
