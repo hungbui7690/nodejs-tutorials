@@ -1,0 +1,27 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/app.ts",
+    "start": "tsx src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.1.0",
+    "express": "^4.19.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@types/express-validator": "^3.0.0",
+    "@types/morgan": "^1.9.9",
+    "express-validator": "^7.1.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.4"
+  }
+}
