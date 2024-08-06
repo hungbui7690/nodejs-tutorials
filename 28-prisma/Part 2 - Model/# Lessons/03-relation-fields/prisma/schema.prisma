@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// a post (Post) can have multiple comments (Comment[])
+model Post {
+  id       Int        @id @default(autoincrement())
+  title    String     @db.VarChar(200)
+  comments Comment[] // A post can have many comments
+}
+
+model Comment {
+  id     Int          @id @default(autoincrement())
+  post   Post?        @relation(fields: [postId], references: [id]) // A comment can have one post
+  postId Int?
+}

@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id      Int      @id @default(autoincrement())
+  profile Profile?
+}
+
+model Profile {
+  id     Int  @id @default(autoincrement())
+  user   User @relation(fields: [userId], references: [id]) // Post.userID links to User.id
+  userId Int  @unique // relation scalar field (used in the `@relation` attribute above)
+}
+
+// The userId relation scalar is a direct representation of the foreign key in the underlying database. This one-to-one relation expresses the following:
+// "a user can have zero profiles or one profile" (because the profile field is optional on User)
+// "a profile must always be connected to one user"
+
+// CREATE TABLE "User" (
+//     id SERIAL PRIMARY KEY
+// );
+// CREATE TABLE "Profile" (
+//     id SERIAL PRIMARY KEY,
+//     "userId" INTEGER NOT NULL UNIQUE,
+//     FOREIGN KEY ("userId") REFERENCES "User"(id)
+// );

@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  posts Post[]
+}
+
+model Post {
+  id       Int  @id @default(autoincrement())
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+}
+
+// CREATE TABLE "User" (
+//     id SERIAL PRIMARY KEY
+// );
+// CREATE TABLE "Post" (
+//     id         SERIAL PRIMARY KEY,
+//     "authorId" integer NOT NULL,
+//     FOREIGN KEY ("authorId") REFERENCES "User"(id)
+// );
+
+// Since there's no UNIQUE constraint on the authorId column (the foreign key), you can create multiple Post records that point to the same User record. This makes the relation a one-to-many rather than a one-to-one.

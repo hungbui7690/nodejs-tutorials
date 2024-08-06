@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  firstName String
+  lastName  String
+  profile   Profile?
+
+  @@id([firstName, lastName])
+}
+
+model Profile {
+  id            Int    @id @default(autoincrement())
+  user          User   @relation(fields: [userFirstName, userLastName], references: [firstName, lastName])
+  userFirstName String // relation scalar field (used in the `@relation` attribute above)
+  userLastName  String // relation scalar field (used in the `@relation` attribute above)
+
+  @@unique([userFirstName, userLastName])
+}
+
+// CREATE TABLE "User" (
+//     firstName TEXT,
+//     lastName TEXT,
+//     PRIMARY KEY ("firstName","lastName")
+// );
+// CREATE TABLE "Profile" (
+//     id SERIAL PRIMARY KEY,
+//     "userFirstName" TEXT NOT NULL,
+//     "userLastName" TEXT NOT NULL,
+//     UNIQUE ("userFirstName", "userLastName")
+//     FOREIGN KEY ("userFirstName", "userLastName") REFERENCES "User"("firstName", "lastName")
+// );
