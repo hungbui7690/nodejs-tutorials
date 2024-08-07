@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GraphQL</title>
+  </head>
+  <body>
+    <h1>GraphQL</h1>
+    <br />
+    <br />
+    <div class="result"></div>
+
+    <script>
+      const result = document.querySelector('.result')
+
+      fetch('/graphql', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({ query: '{ hello }' }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          console.log('data returned:', data)
+          result.textContent = data.data.hello
+        })
+    </script>
+  </body>
+</html>
